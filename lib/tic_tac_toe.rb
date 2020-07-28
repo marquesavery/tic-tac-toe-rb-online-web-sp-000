@@ -1,3 +1,5 @@
+require "pry"
+
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -56,6 +58,7 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   current_player = current_player(board)
+  binding.pry
   if valid_move?(board, index)
     move(board, index, current_player)
     display_board(board)

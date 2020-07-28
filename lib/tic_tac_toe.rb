@@ -104,7 +104,6 @@ end
 
 
 def winner(board)
-#  index = won?(board)[0]
   if won?(board)
     index = won?(board)[0]
     board[index]

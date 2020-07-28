@@ -91,7 +91,7 @@ def full?(board)
 end
 
 def draw?(board)
-  if full?(board) == true
+  if full?(board)
     if won?(board) == false
       true
     end
@@ -99,13 +99,14 @@ def draw?(board)
 end
 
 def over?(board)
-  WIN_COMBINATIONS.any? do |w|
-    if draw?(board) == true
-      return true
-    elsif won?(board) == w
-      return true
-    end
-  end
+ # #WIN_COMBINATIONS.any? do |w|
+ #    if draw?(board) == true
+ #      return true
+ #    elsif won?(board) == w
+ #      return true
+ #    end
+ #  end
+  won?(board) || draw?(board)
 end
 
 

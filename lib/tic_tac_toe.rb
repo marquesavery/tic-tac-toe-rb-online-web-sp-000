@@ -104,8 +104,9 @@ end
 
 
 def winner(board)
-  index = won?(board)[0]
-  if board[index] == "X" || "O"
+#  index = won?(board)[0]
+  if won?(board)
+    index = won?(board)[0]
     board[index]
   else
     false

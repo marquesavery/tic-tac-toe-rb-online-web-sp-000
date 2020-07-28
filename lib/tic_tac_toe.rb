@@ -86,7 +86,6 @@ end
 
 def full?(board)
   board.all? do |f|
-    binding.pry
     f.include?("X") || f.include?("O")
   end
 end

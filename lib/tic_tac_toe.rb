@@ -109,6 +109,7 @@ def winner(board)
     board[index]
   else
     false
+  end
 end
 
 

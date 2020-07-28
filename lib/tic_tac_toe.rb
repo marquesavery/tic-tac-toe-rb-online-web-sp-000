@@ -1,3 +1,5 @@
+require "pry"
+
 WIN_COMBINATIONS = [
   [0,1,2],
   [3,4,5],
@@ -89,7 +91,7 @@ def full?(board)
 end
 
 def draw?(board)
-  if full?(board) == true
+  if full?(board)
     if won?(board) == false
       true
     end
@@ -97,32 +99,14 @@ def draw?(board)
 end
 
 def over?(board)
-  WIN_COMBINATIONS.any? do |w|
-    if draw?(board) == true
-      return true
-    elsif won?(board) == w
-      return true
-    end
-  end
+  won?(board) || draw?(board)
 end
 
 
 def winner(board)
-  if over?(board) == true
-    WIN_COMBINATIONS.each do |win_combination|
-      win_index_1 = win_combination[0]
-      win_index_2 = win_combination[1]
-      win_index_3 = win_combination[2]
-
-      position_1 = board[win_index_1]
-      position_2 = board[win_index_2]
-      position_3 = board[win_index_3]
-      if position_1 == "X" && position_2 == "X" && position_3 == "X"
-        return "X"
-      elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
-        return "O"
-      end
-    end
+  if won?(board)
+    index = won?(board)[0]
+    board[index]
   end
 end
 
@@ -137,9 +121,5 @@ def play(board)
     puts "Congratulations #{winner(board)}!"
   elsif draw?(board)
     puts "Cat's Game!"
-  else
-    puts "Do something"
-#  elsif winner(board) == "X" || "O"
-#    puts "Congratulations #{winner(board)}!"
   end
 end

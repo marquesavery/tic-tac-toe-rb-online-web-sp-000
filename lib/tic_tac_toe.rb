@@ -111,8 +111,9 @@ end
 
 
 def winner(board)
-  binding.pry
-  won?(board)[0]
+  #binding.pry
+  index = won?(board)[0]
+  board[index]
   # if over?(board)
     # WIN_COMBINATIONS.each do |win_combination|
     #   win_index_1 = win_combination[0]

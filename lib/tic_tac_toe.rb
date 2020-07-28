@@ -86,6 +86,7 @@ end
 
 def full?(board)
   board.all? do |f|
+    binding.pry
     f.include?("X") || f.include?("O")
   end
 end
@@ -100,7 +101,6 @@ end
 
 def over?(board)
   WIN_COMBINATIONS.any? do |w|
-    binding.pry
     if draw?(board) == true
       return true
     elsif won?(board) == w
@@ -132,7 +132,6 @@ end
 
 def play(board)
   until over?(board)
-    binding.pry
     turn(board)
 
   end

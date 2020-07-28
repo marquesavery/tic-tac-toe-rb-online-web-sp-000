@@ -100,6 +100,7 @@ end
 
 def over?(board)
   WIN_COMBINATIONS.any? do |w|
+    binding.pry
     if draw?(board) == true
       return true
     elsif won?(board) == w
